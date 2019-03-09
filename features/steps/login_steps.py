@@ -34,7 +34,7 @@ def step_impl(context):
     login_page.click_login()
 
 
-@then("I see validation message for")
+@step("I see validation message for")
 def step_impl(context):
     login_page = LoginPage(context.driver)
     for row in context.table:
@@ -42,5 +42,5 @@ def step_impl(context):
         login_page.enter_password(row["password"])
         login_page.click_login()
         context.execute_steps('''
-        When I see element with text "Sorry, your password was incorrect. Please double-check your password."
+        When I see element with text "To secure your account, we've reset your password"
         ''')

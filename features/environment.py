@@ -12,8 +12,10 @@ def before_all(context):
     parser.read("behave.ini")
     context.config = parser
 
+
 def before_scenario(context, scenario):
     context.driver.delete_all_cookies()
+
 
 def after_step(context, step):
     if step.status == "failed":
